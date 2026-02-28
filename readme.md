@@ -26,3 +26,6 @@ Instead of using basic Docker setups, this project implements production-grade c
    git clone https://github.com/harshpatel02/two-tier-app.git
    cd two-tier-app
 2. **Run python app.py**
+3. **If using Kubernetes to deploy the app, use**
+   ```bash
+   kubectl apply -f manifests/
