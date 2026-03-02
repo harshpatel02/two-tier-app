@@ -8,6 +8,7 @@ Instead of using basic Docker setups, this project implements production-grade c
 - **Multi-Stage Builds:** The Python `Dockerfile` utilizes a multi-stage approach. Dependencies are built in a heavy image and only the compiled artifacts are copied to a lightweight production image (e.g., `python:3.9-slim`). 
 - **Security & Optimization:** This drastically reduces the attack surface by stripping out build tools and significantly reduces the image size, leading to faster pull times in CI/CD pipelines and Kubernetes nodes.
 - **Network Isolation:** The application runs on a custom Docker bridge network via `docker-compose`, ensuring the Redis backend is not exposed directly to the host network, mimicking a private subnet architecture.
+- **Cloud Native:** The application can be deployed in a Kubernetes Cluster via Helm Chart to maintain and upgrade the application via releases.
 
 ## 🛠 Tech Stack
 * **Language:** Python 3.12 (Flask)
@@ -25,7 +26,11 @@ Instead of using basic Docker setups, this project implements production-grade c
    ```bash
    git clone https://github.com/harshpatel02/two-tier-app.git
    cd two-tier-app
+   pip install -r requirements.txt
 2. **Run python app.py**
 3. **If using Kubernetes to deploy the app, use**
    ```bash
    kubectl apply -f manifests/
+4. **If using Helm to deploy the app, use**
+   ```bash
+   helm install my-app .\myapp
