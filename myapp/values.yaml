@@ -1,0 +1,7 @@
+app:
+  replicaCount: 1
+  image:
+    repository: myapp
+    tag: "v1"
+db:
+  replicaCount: 1

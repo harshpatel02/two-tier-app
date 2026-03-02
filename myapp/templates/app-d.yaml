@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: {{ .Values.app.replicaCount }}
+  selector:
+    matchLabels:
+      type: app
+  template:
+    metadata:
+      labels:
+        name: backend
+        type: app
+    spec:
+      containers:
+        - name: backend
+          image: {{ .Values.app.image.repository }}:{{ .Values.app.image.tag}}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
