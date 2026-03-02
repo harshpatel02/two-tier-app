@@ -14,7 +14,7 @@ Instead of using basic Docker setups, this project implements production-grade c
 * **Language:** Python 3.12 (Flask)
 * **Backend/Cache:** Redis
 * **Containerization:** Docker, Docker Compose
-* **Orchestration:** Kubernetes (`kind`)
+* **Orchestration:** Kubernetes (`kind`), Helm
 
 ## 🚀 How to Run Locally
 
