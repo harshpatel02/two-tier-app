@@ -18,9 +18,6 @@ spec:
           image: redis:alpine
           ports:
             - containerPort: 6379
-          envFrom:
-            - configMapRef:
-                name: redis-config
           livenessProbe:
             exec:
               command:

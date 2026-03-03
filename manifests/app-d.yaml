@@ -16,6 +16,9 @@ spec:
         - name: backend
           image: myapp:v1
           imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: redis-config
           ports:
             - containerPort: 5000
           livenessProbe:
