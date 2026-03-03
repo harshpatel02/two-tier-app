@@ -37,3 +37,13 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/myapp:${{ steps.vars.outputs.sha_short }},${{ secrets.DOCKER_USERNAME }}/myapp:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/myapp:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/myapp:buildcache,mode=max
+      - name: Update Helm values.yaml with new image tag
+        run: |
+          # Replace tag with the new commit SHA
+          sed -i "s/tag: .*/tag: \"${{ steps.vars.outputs.sha_short }}\"/" myapp/values.yaml
+          
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add myapp/values.yaml
+          git commit -m "chore: update image tag to ${{ steps.vars.outputs.sha_short }}[skip ci]"
+          git push

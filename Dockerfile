@@ -11,7 +11,7 @@ FROM python:3.12-alpine
 WORKDIR /app
 
 COPY --from=build /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
-COPY . .
+COPY app.py .
 
 EXPOSE 5000
 

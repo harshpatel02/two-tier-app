@@ -15,7 +15,7 @@ def home():
     visits = r.get("visits").decode("utf-8")
     
     print("working!")
-    return f"Hello! This page has been visited {visits} times."
+    return f"Hello Visitor! This page has been visited {visits} times."
 
 if __name__ == "__main__":
     app.run(debug=False, host='0.0.0.0', port=5000)
