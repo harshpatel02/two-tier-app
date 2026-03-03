@@ -1,7 +1,7 @@
 app:
   replicaCount: 1
   image:
-    repository: myapp
+    repository: domainexpansion26/myapp
     tag: "v1"
 db:
   replicaCount: 1

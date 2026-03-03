@@ -13,10 +13,12 @@ spec:
         name: backend
         type: app
     spec:
+      imagePullSecrets:
+        - name: dockerhub-cred
       containers:
         - name: backend
           image: {{ .Values.app.image.repository }}:{{ .Values.app.image.tag}}
-          imagePullPolicy: IfNotPresent
+          # imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
           livenessProbe:
