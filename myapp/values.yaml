@@ -2,6 +2,6 @@ app:
   replicaCount: 1
   image:
     repository: domainexpansion26/myapp
-    tag: "aaa4492"
+    tag: "24a7ca7"
 db:
   replicaCount: 1
