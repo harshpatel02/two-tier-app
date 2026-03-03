@@ -2,6 +2,6 @@ app:
   replicaCount: 1
   image:
     repository: myapp
-    tag: "v1"
+    tag: "e6792e3"
 db:
   replicaCount: 1
